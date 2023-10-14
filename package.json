@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/melbinzaharia/MZEstate/issues"
   },
-  "homepage": "https://github.com/melbinzaharia/MZEstate#readme"
+  "homepage": "https://github.com/melbinzaharia/MZEstate#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
