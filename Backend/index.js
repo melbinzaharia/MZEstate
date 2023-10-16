@@ -10,7 +10,7 @@ app.listen(3000,() => {
 })
 
 //connecting database
-mongoose.connect("mongodb+srv://melbinzacharia:Melbin24.!@cluster0.zsftp0a.mongodb.net/?retryWrites=true&w=majority").then(()=>{
+mongoose.connect(process.env.MONGO).then(()=>{
     console.log("CONNECTED DATABASE");
 }).catch((err)=>{
     console.log(err);
