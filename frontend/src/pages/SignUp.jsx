@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-export default function SignUp() {
+export default function SignIn() {
   const [formData, setFormData] = useState({}) // to save and handle
 
   const [error, setError] = useState(null)// to handle error
