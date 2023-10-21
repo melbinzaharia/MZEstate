@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 
+
 const initialState = {
   currentUser: null,
   error: null,
@@ -25,9 +26,12 @@ const userSlice = createSlice({
         state.error = action.payload,
         state.loading = false
     },
+    clearLocalStorageItem: (state, action) => {
+      storage.removeItem('persist:root') // Remove a specific item
+    },
   },
 });
 
-export const {signInStart, signInSuccess,signInFailure,clearStorage} = userSlice.actions;
+export const {signInStart, signInSuccess,signInFailure,clearLocalStorageItem} = userSlice.actions;
 
 export default userSlice.reducer;

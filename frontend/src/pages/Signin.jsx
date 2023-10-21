@@ -5,8 +5,9 @@ import {
   signInStart,
   signInSuccess,
   signInFailure,
-  clearStorage
+  clearLocalStorageItem
 } from '../redux/user/userSlice';
+import { persistor } from "../redux/store";
 import OAuth from '../components/Oauth';
 
 export default function SignIn() {
@@ -35,6 +36,10 @@ export default function SignIn() {
       console.log(data);
       if (data.success === false) {
         dispatch(signInFailure(data.message));
+        persistor.pause();
+        persistor.flush().then(() => {
+          return persistor.purge();
+        });
         return;
       }
       dispatch(signInSuccess(data));
