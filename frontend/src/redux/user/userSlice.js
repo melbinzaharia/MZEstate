@@ -15,7 +15,6 @@ const userSlice = createSlice({
   reducers: {
     signInStart: (state) => {
       state.loading = true;
-      
     },
     signInSuccess: (state, action) => {
       state.currentUser = action.payload, 
@@ -26,12 +25,36 @@ const userSlice = createSlice({
         state.error = action.payload,
         state.loading = false
     },
-    clearLocalStorageItem: (state, action) => {
-      storage.removeItem('persist:root') // Remove a specific item
+    updateUserStart: (state) => {
+      state.loading = true;
+    },
+    updateUserSuccess: (state, action) => {
+      state.currentUser = action.payload, 
+      state.error = null,
+      state.loading = false;
+    },
+    updateUserFailure: (state, action) => {
+        state.error = action.payload,
+        state.loading = false;
+    },
+    deleteUserStart: (state) => {
+      state.loading = true;
+    },
+    deleteUserSuccess: (state, action) => {
+      state.currentUser = null, 
+      state.error = null,
+      state.loading = false;
+    },
+    deleteUserFailure: (state, action) => {
+        state.error = action.payload,
+        state.loading = false;
+    },
+    signOutStart: (state) => {
+      state.loading = true;
     },
   },
 });
 
-export const {signInStart, signInSuccess,signInFailure,clearLocalStorageItem} = userSlice.actions;
+export const {signInStart, signInSuccess,signInFailure,updateUserStart,updateUserSuccess,updateUserFailure,deleteUserStart,deleteUserSuccess,deleteUserFailure,signOutStart} = userSlice.actions;
 
 export default userSlice.reducer;

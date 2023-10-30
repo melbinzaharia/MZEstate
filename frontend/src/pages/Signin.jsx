@@ -5,7 +5,6 @@ import {
   signInStart,
   signInSuccess,
   signInFailure,
-  clearLocalStorageItem
 } from '../redux/user/userSlice';
 import { persistor } from "../redux/store";
 import OAuth from '../components/Oauth';
